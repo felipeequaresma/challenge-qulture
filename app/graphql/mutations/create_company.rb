@@ -1,18 +1,19 @@
 # frozen_string_literal: true
 
 module Mutations
+  # Create company
   class CreateCompany < BaseMutation
     argument :name, String, required: true, description: "The company's name"
 
     field :company, Types::CompanyType, null: false
-    field :errors, [String], null: false
 
     def resolve(name:)
-      company = Company.new(name: name)
+      company = Company.create!(name: name)
 
-      return { company: nil, errors: company.errors.full_messages } unless company.save
-
-      { company: company, errors: [] }
+      { company: company }
+    rescue ActiveRecord::RecordInvalid => e
+      GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\
+        " #{e.record.errors.full_messages.join(', ')}")
     end
   end
 end

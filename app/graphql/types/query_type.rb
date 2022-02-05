@@ -4,19 +4,9 @@ module Types
   # Description/Explanation of Person class
   class QueryType < Types::BaseObject
     # /companies
-    field :companies, [Types::CompanyType], null: false
-
-    def companies
-      Company.all
-    end
+    field :fetch_companies, resolver: Queries::Company::FetchCompanies
 
     # /company/:id
-    field :company, Types::CompanyType, null: false do
-      argument :id, ID
-    end
-
-    def company(id:)
-      Company.find(id)
-    end
+    field :fetch_company, resolver: Queries::Company::FetchCompany
   end
 end
