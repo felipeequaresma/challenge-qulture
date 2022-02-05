@@ -1,9 +1,9 @@
 ## User Stories
   
-  ## 1. Epic: Empresa -> Enterpise
-    1.1. Como usuário, quero cadastrar uma empresa (atributos: [:name]) -> create_enterprise
-    1.2. Como usuário, quero listar as empresas do sistema -> get_all_enterprises
-    1.3. Como usuário, quero ver uma empresa -> enterprise
+  ## 1. Epic: Empresa -> Company
+    1.1. Como usuário, quero cadastrar uma empresa (atributos: [:name]) -> create_company [ok]
+    1.2. Como usuário, quero listar as empresas do sistema -> companies [ok]
+    1.3. Como usuário, quero ver uma empresa -> company(:uuid) [ok]
   
   ## 2. Epic: Colaboradores -> Contributors
     2.1. Como usuário, quero cadastrar um colaborador em uma empresa (atributos: [:name, :email]) -> create_contributors
@@ -20,9 +20,8 @@
     3.4. Como usuário, quero listar os liderados dos liderados de um colaborador (segundo nível)
     
 ## Observações
-  1. Não é preciso implementar autenticação
-  2. Se preferir, você pode usar graphql, tecnologia que utilizamos hoje em dia na Qulture.
-
+  1. Não é preciso implementar autenticação [ok]
+  2. Se preferir, você pode usar graphql, tecnologia que utilizamos hoje em dia na Qulture. [ok]
 ## Esperamos:
   1. clean code
   2. implementação em ruby, python ou javascript
