@@ -3,17 +3,16 @@
 module Types
   # Description/Explanation of Person class
   class QueryType < Types::BaseObject
-    field :companies, [Types::CompanyType], null: false do
-      description 'Query that selects all companies'
-    end
-
-    field :company, Types::CompanyType, null: false do
-      description 'Get informations to Company'
-      argument :id, ID
-    end
+    # /companies
+    field :companies, [Types::CompanyType], null: false
 
     def companies
       Company.all
+    end
+
+    # /company/:id
+    field :company, Types::CompanyType, null: false do
+      argument :id, ID
     end
 
     def company(id:)
