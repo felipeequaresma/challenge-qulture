@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  database: challenge_api
+  user: postgres
+  password: docker
+  host: localhost
+  pool: 5
+
+development:
+  <<: *default
+  database: challenge_api_development
+
+test:
+  <<: *default
+  database: challenge_api_test
+
+production:
+  <<: *default
+  database: challenge_api_production
+  username: postgres
+  password: <%= ENV['ECOMMERCE_API_DATABASE_PASSWORD'] %>
