@@ -1,9 +1,9 @@
 ## User Stories
   
   ## 1. Epic: Empresa -> Company
-    1.1. Como usuário, quero cadastrar uma empresa (atributos: [:name]) -> create_company [ok]
-    1.2. Como usuário, quero listar as empresas do sistema -> companies [ok]
-    1.3. Como usuário, quero ver uma empresa -> company(:uuid) [ok]
+    1.1. Como usuário, quero cadastrar uma empresa (atributos: [:name]) [ok]
+    1.2. Como usuário, quero listar as empresas do sistema [ok]
+    1.3. Como usuário, quero ver uma empresa [ok]
   
   ## 2. Epic: Colaboradores -> Contributors
     2.1. Como usuário, quero cadastrar um colaborador em uma empresa (atributos: [:name, :email]) -> create_contributors
