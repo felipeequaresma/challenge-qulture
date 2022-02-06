@@ -6,15 +6,15 @@
     1.3. Como usuário, quero ver uma empresa [ok]
   
   ## 2. Epic: Colaboradores -> Contributors
-    2.1. Como usuário, quero cadastrar um colaborador em uma empresa (atributos: [:name, :email]) -> create_contributors
-    2.2. Como usuário, quero listar os colaboradores de uma empresa  -> get_all_enterprises
-    2.3. Como usuário, quero apagar um colaborador de uma empresa -> delete_contributors
+    2.1. Como usuário, quero cadastrar um colaborador em uma empresa (aatributos: [:name, :email]) [ok]
+    2.2. Como usuário, quero listar os colaboradores de uma empresa [ok]
+    2.3. Como usuário, quero apagar um colaborador de uma empresa [ok]
   
   ## 3. Epic: Organograma
-    3.1. Como usuário, quero associar um colaborador como gestor de outro usuário
-      - Atenção: Ambos precisam estar na mesma empresa
-      - Cada usuário pode ter no máximo 1 gestor.
-      - Uma pessoa abaixo de um líder na hierarquia não pode ser líder desse líder (não permitir loops)
+    3.1. Como usuário, quero associar um colaborador como gestor de outro usuário [ok]
+      - Atenção: Ambos precisam estar na mesma empresa [ok]
+      - Cada usuário pode ter no máximo 1 gestor. [ok]
+      - Uma pessoa abaixo de um líder na hierarquia não pode ser líder desse líder (não permitir loops) [ok]
     3.2. Como usuário, quero listar os pares de um colaborador (todos os colaboradores que são liderados do gestor desse colaborador)
     3.3. Como usuário, quero listar os liderados diretos de um colaborador
     3.4. Como usuário, quero listar os liderados dos liderados de um colaborador (segundo nível)

@@ -14,8 +14,8 @@ module Mutations
       user.update!(company: company)
 
       { user: user }
-    rescue ActiveRecord::RecordNotFound => e
-      GraphQL::ExecutionError.new(e.message)
+    rescue ActiveRecord::RecordNotFound => _e
+      GraphQL::ExecutionError.new("User/Company doesn't exist.")
     rescue ActiveRecord::RecordInvalid => e
       GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\
         "#{e.record.errors.full_messages.join(', ')}")

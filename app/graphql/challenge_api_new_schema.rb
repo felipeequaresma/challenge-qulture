@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# app/graphql/challenge_api_new_schema.rb
 class ChallengeApiNewSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
