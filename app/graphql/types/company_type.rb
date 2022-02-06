@@ -14,5 +14,6 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false do
       description 'The date/time that this post was updated at'
     end
+    field :user, [Types::UserType], description: "This post's comments, or null if this post has comments disabled."
   end
 end

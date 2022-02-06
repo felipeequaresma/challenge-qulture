@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_173947) do
     t.string "email", null: false
     t.string "name", null: false
     t.uuid "manager_id"
-    t.uuid "company_id", null: false
+    t.uuid "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_users_on_company_id"
