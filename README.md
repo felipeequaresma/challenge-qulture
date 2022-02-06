@@ -6,7 +6,7 @@
     1.3. Como usuário, quero ver uma empresa [ok]
   
   ## 2. Epic: Colaboradores -> Contributors
-    2.1. Como usuário, quero cadastrar um colaborador em uma empresa (aatributos: [:name, :email]) [ok]
+    2.1. Como usuário, quero cadastrar um colaborador em uma empresa (atributos: [:name, :email]) [ok]
     2.2. Como usuário, quero listar os colaboradores de uma empresa [ok]
     2.3. Como usuário, quero apagar um colaborador de uma empresa [ok]
   
@@ -16,8 +16,8 @@
       - Cada usuário pode ter no máximo 1 gestor. [ok]
       - Uma pessoa abaixo de um líder na hierarquia não pode ser líder desse líder (não permitir loops) [ok]
     3.2. Como usuário, quero listar os pares de um colaborador (todos os colaboradores que são liderados do gestor desse colaborador)
-    3.3. Como usuário, quero listar os liderados diretos de um colaborador
-    3.4. Como usuário, quero listar os liderados dos liderados de um colaborador (segundo nível)
+    3.3. Como usuário, quero listar os liderados diretos de um colaborador [ok]
+    3.4. Como usuário, quero listar os liderados dos liderados de um colaborador (segundo nível) [ok]
     
 ## Observações
   1. Não é preciso implementar autenticação [ok]

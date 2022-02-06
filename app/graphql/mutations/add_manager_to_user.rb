@@ -8,12 +8,14 @@ module Mutations
 
     field :user, Types::UserType, null: false
 
-    def resolve(id:, manager_id:)
-      user = ::User.find(id)
+    def resolve(id:, manager_id:) # rubocop:disable Metrics/AbcSize
+      users = ::User.find(id, manager_id)
+      user = users.first
+      manager = users.second
 
-      return GraphQL::ExecutionError.new('Cannot allow manager this user') unless can_be_manager?(user, manager_id)
+      return GraphQL::ExecutionError.new('Cannot allow manager this user') unless can_be_manager?(user, manager)
 
-      user.update!(manager_id: manager_id)
+      user.update!(level: manager.level.next, manager_id: manager.id)
 
       { user: user }
     rescue ActiveRecord::RecordNotFound => e
@@ -24,20 +26,24 @@ module Mutations
 
     private
 
-    def can_be_manager?(user, manager_id)
-      return if subordinate?(user, manager_id)
-      return unless same_company?(user)
+    def can_be_manager?(user, manager)
+      return unless permited_manager?(user, manager)
+
+      # && same_company?(user)
 
       true
     end
 
-    def subordinate?(user, manager_id)
-      user.subordinates.exists?(manager_id)
+    def permited_manager?(user, manager)
+      return true if manager.level.nil? || user.level.nil?
+
+      manager.level <= user.level
     end
 
     def same_company?(user)
-      user.manager&.company.present? &&
-        user.manager&.company&.id.eql?(user.company&.id)
+      return true if user.manager&.company.nil?
+
+      user.manager&.company&.id.eql?(user.company&.id)
     end
   end
 end
