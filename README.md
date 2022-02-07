@@ -16,4 +16,4 @@ rails db:create db:migrate
 rails s
 ```
 
-* [Copiar e colar os methods](graphiql.md) : `GET /api/accounts/`
+* [doc da implementação](graphiql.md) : `GET /graphiql/`
