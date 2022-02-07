@@ -15,7 +15,7 @@ module Mutations
 
       { user: user }
     rescue ActiveRecord::RecordNotFound => _e
-      GraphQL::ExecutionError.new("User/Company doesn't exist.")
+      GraphQL::ExecutionError.new("Field doesn't exist.")
     rescue ActiveRecord::RecordInvalid => e
       GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\
         "#{e.record.errors.full_messages.join(', ')}")

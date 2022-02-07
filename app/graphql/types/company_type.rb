@@ -16,4 +16,6 @@ module Types
     end
     field :user, [Types::UserType], description: "This post's comments, or null if this post has comments disabled."
   end
+
+  # TODO: remove n+1 queries
 end
