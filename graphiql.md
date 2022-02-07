@@ -32,7 +32,7 @@ query showCompany{
 2.1. Cadastrar um colaborador em uma empresa `atributos: [:name, :email]`
 ```
 mutation createUser {
-  createUser(input: {name: :name, email: :email"}) {
+  createUser(input: {name: :name, email: :email}) {
     user {
       id
       name
