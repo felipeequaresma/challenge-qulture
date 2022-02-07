@@ -15,3 +15,5 @@ rails db:create db:migrate
 ```bash
 rails s
 ```
+
+* [Copiar e colar os methods](graphiql.md) : `GET /api/accounts/`
