@@ -1,37 +1,117 @@
-## User Stories
-  
-  ## 1. Epic: Empresa -> Company
-    1.1. Como usuário, quero cadastrar uma empresa (atributos: [:name]) [ok]
-    1.2. Como usuário, quero listar as empresas do sistema [ok]
-    1.3. Como usuário, quero ver uma empresa [ok]
-  
-  ## 2. Epic: Colaboradores -> Contributors
-    2.1. Como usuário, quero cadastrar um colaborador em uma empresa (atributos: [:name, :email]) [ok]
-    2.2. Como usuário, quero listar os colaboradores de uma empresa [ok]
-    2.3. Como usuário, quero apagar um colaborador de uma empresa [ok]
-  
-  ## 3. Epic: Organograma
-    3.1. Como usuário, quero associar um colaborador como gestor de outro usuário [ok]
-      - Atenção: Ambos precisam estar na mesma empresa [ok]
-      - Cada usuário pode ter no máximo 1 gestor. [ok]
-      - Uma pessoa abaixo de um líder na hierarquia não pode ser líder desse líder (não permitir loops) [ok]
-    3.2. Como usuário, quero listar os pares de um colaborador (todos os colaboradores que são liderados do gestor desse colaborador)
-    3.3. Como usuário, quero listar os liderados diretos de um colaborador [ok]
-    3.4. Como usuário, quero listar os liderados dos liderados de um colaborador (segundo nível) [ok]
-    
-## Observações
-  1. Não é preciso implementar autenticação [ok]
-  2. Se preferir, você pode usar graphql, tecnologia que utilizamos hoje em dia na Qulture. [ok]
-## Esperamos:
-  1. clean code
-  2. implementação em ruby, python ou javascript
-  3. testes de unidade e testes de integração (não precisa ter uma cobertura enorme, o que julgar razoável)
-  4. clean code
-  5. atenção a detalhes
-  6. documentação básica (não precisa ser extensiva) no readme 
-  7. mantainable code
-  8. preocupação com arquitetura e boas práticas de orientação a objetos
-  9. código 100% em inglês
-  10. consultas em casos de dúvidas ou comunicar grandes decisões/alterações de projeto
-  11. postura ética: código original - você pode usar bibliotecas de apoio, mas a lógica de implementação principal deve ser sua
-  12. clean code ;)
+### 1. Epic: Empresa
+# 1.1. Como usuário, quero cadastrar uma empresa (atributos: [:name])
+mutation createCompany {
+  createCompany(input: {name: /:name}) {
+    company {
+      id
+      name
+    }
+  }
+}
+
+# 1.2. Como usuário, quero listar as empresas do sistema
+query indexCompany {
+  fetchCompanies {
+    id
+    name
+  }
+}
+
+# 1.3. Como usuário, quero ver uma empresa
+query showCompany{
+  fetchCompany(id: /:company_id) {
+    id
+    name
+  }
+}
+
+### 2. Epic: Colaboradores
+# 2.1. Como usuário, quero cadastrar um colaborador em uma empresa (atributos: [:name, :email])
+mutation createUser {
+  createUser(input: {name: /:name, email: /:email"}) {
+    user {
+      id
+      name
+    }
+  }
+}
+
+mutation addUserInCompany {
+  addUserCompany(
+    input: {id: /:user_id, companyId: /:company_id"}
+  ) {
+    user {
+      id
+      name
+      company {
+        name
+      }
+      manager {
+        name
+      }
+    }
+  }
+}
+# 2.2. Como usuário, quero listar os colaboradores de uma empresa
+query showCompanyWithUser{
+  fetchCompany(id: /:company_id) {
+    id
+    name
+    user {
+      name
+    }
+  }
+}
+# 2.3. Como usuário, quero apagar um colaborador de uma empresa
+mutation removeUserInCompany {
+  removeUserCompany(input: {id: /:user_id}) {
+    user {
+      id
+      name
+    }
+  }
+}
+### 3. Epic: Organograma
+# 3.1. Como usuário, quero associar um colaborador como gestor de outro usuário 
+mutation addUserToManager {
+  addManagerToUser(
+    input: {id: /:user_id, managerId: /:manager_id}
+  ) {
+    user {
+      id
+      name
+      manager {
+        id
+        name
+      }
+    }
+  }
+}
+# 3.3. Como usuário, quero listar os liderados diretos de um colaborador
+query showAllSubordinates {
+  fetchUser(id: /:user_id) {
+    id
+    name
+    subordinates {
+      id
+      name
+    }
+  }
+}
+# 3.4. Como usuário, quero listar os liderados dos liderados de um colaborador (segundo nível)
+query showAllSubordinatesToSubordinates {
+  fetchUser(id: /:user_id) {
+    id
+    name
+    subordinates {
+      id
+      name
+      level
+      subordinates {
+        id
+        name
+        level
+      }
+    }
+  }
+}
