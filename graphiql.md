@@ -113,7 +113,7 @@ query showAllSubordinates {
   }
 }
 ```
-3.4. Listar os liderados dos liderados de um colaborador (segundo nível) atributo: [:id]`
+3.4. Listar os liderados dos liderados de um colaborador (segundo nível) `atributo: [:id]`
 ```
 query showAllSubordinatesToSubordinates {
   fetchUser(id: :id) {
