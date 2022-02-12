@@ -1,27 +1,27 @@
 ## User Stories
   
   ## 1. Epic: Empresa -> Company
-    1.1. Como usuário, quero cadastrar uma empresa (atributos: [:name]) [ok]
-    1.2. Como usuário, quero listar as empresas do sistema [ok]
-    1.3. Como usuário, quero ver uma empresa [ok]
+    1.1. Como usuário, quero cadastrar uma empresa (atributos: [:name]). 
+    1.2. Como usuário, quero listar as empresas do sistema. 
+    1.3. Como usuário, quero ver uma empresa.
   
   ## 2. Epic: Colaboradores -> Contributors
-    2.1. Como usuário, quero cadastrar um colaborador em uma empresa (atributos: [:name, :email]) [ok]
-    2.2. Como usuário, quero listar os colaboradores de uma empresa [ok]
-    2.3. Como usuário, quero apagar um colaborador de uma empresa [ok]
+    2.1. Como usuário, quero cadastrar um colaborador em uma empresa (atributos: [:name, :email]).
+    2.2. Como usuário, quero listar os colaboradores de uma empresa.
+    2.3. Como usuário, quero apagar um colaborador de uma empresa. 
   
   ## 3. Epic: Organograma
-    3.1. Como usuário, quero associar um colaborador como gestor de outro usuário [ok]
-      - Atenção: Ambos precisam estar na mesma empresa [ok]
-      - Cada usuário pode ter no máximo 1 gestor. [ok]
-      - Uma pessoa abaixo de um líder na hierarquia não pode ser líder desse líder (não permitir loops) [ok]
-    3.2. Como usuário, quero listar os pares de um colaborador (todos os colaboradores que são liderados do gestor desse colaborador)
-    3.3. Como usuário, quero listar os liderados diretos de um colaborador [ok]
-    3.4. Como usuário, quero listar os liderados dos liderados de um colaborador (segundo nível) [ok]
-    
+    3.1. Como usuário, quero associar um colaborador como gestor de outro usuário .
+      - Atenção: Ambos precisam estar na mesma empresa.
+      - Cada usuário pode ter no máximo 1 gestor. 
+      - Uma pessoa abaixo de um líder na hierarquia não pode ser líder desse líder (não permitir loops).
+    3.2. Como usuário, quero listar os pares de um colaborador (todos os colaboradores que são liderados do gestor desse colaborador).
+    3.3. Como usuário, quero listar os liderados diretos de um colaborador.
+    3.4. Como usuário, quero listar os liderados dos liderados de um colaborador (segundo nível).
+
 ## Observações
-  1. Não é preciso implementar autenticação [ok]
-  2. Se preferir, você pode usar graphql, tecnologia que utilizamos hoje em dia na Qulture. [ok]
+  1. Não é preciso implementar autenticação 
+  2. Se preferir, você pode usar graphql, tecnologia que utilizamos hoje em dia na Qulture. 
 ## Esperamos:
   1. clean code
   2. implementação em ruby, python ou javascript

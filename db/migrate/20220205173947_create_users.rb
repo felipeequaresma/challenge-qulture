@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.0] # rubocop:disable Style/Documen
     create_table :users, id: :uuid do |t|
       t.string :email, null: false
       t.string :name, null: false
-      t.integer :level, optional: true
+      t.integer :level, default: 1, null: false
 
       t.references :manager, type: :uuid, foreign_key: { to_table: :users }, index: true
       t.belongs_to :company, optional: true, type: :uuid

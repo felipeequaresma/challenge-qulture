@@ -9,13 +9,15 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'graphiql-rails', '~> 1.8'
 gem 'graphql', '~> 1.13'
+gem 'graphql-batch', '~> 0.5.0'
 gem 'puma', '~> 4.1'
 gem 'rack-cors'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
+  gem 'factory_bot_rail', '~> 6.2'
   gem 'pry'
-  # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do

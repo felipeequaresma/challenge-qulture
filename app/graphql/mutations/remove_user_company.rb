@@ -9,11 +9,11 @@ module Mutations
 
     def resolve(id:)
       user = ::User.find(id)
-      user.update!(company_id: nil)
+      user.destroy!
 
       { user: user }
     rescue ActiveRecord::RecordNotFound => _e
-      GraphQL::ExecutionError.new('User does not exist.')
+      GraphQL::ExecutionError.new('User not found')
     rescue ActiveRecord::RecordInvalid => e
       GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\
         "#{e.record.errors.full_messages.join(', ')}")

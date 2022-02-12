@@ -7,7 +7,7 @@ module Queries
       type [Types::CompanyType], null: false
 
       def resolve
-        ::Company.all
+        ::Company.all.includes(:user)
       end
     end
   end

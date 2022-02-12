@@ -27,22 +27,16 @@ module Mutations
     private
 
     def can_be_manager?(user, manager)
-      return unless permited_manager?(user, manager)
-
-      # && same_company?(user)
+      return unless permited_manager?(user, manager) || same_company?(user)
 
       true
     end
 
     def permited_manager?(user, manager)
-      return true if manager.level.nil? || user.level.nil?
-
       manager.level <= user.level
     end
 
     def same_company?(user)
-      return true if user.manager&.company.nil?
-
       user.manager&.company&.id.eql?(user.company&.id)
     end
   end
